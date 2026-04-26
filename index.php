@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);       // Solo activar en desarrollo
+// ini_set('display_errors', 1); // Solo activar en desarrollo
 ?>
 
 <link rel="stylesheet" href="estilos.css">
@@ -14,4 +14,5 @@ ini_set('display_errors', 1);
     <a href="calzado.php">Calzado</a>
     <a href="compras.php">Compras</a>
     <a href="agregar_compra.php">Agregar Compra</a>
+    <a href="tiendas.php">Tiendas</a>
 </div>
