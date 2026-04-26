@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-04-2026 a las 00:33:29
+-- Tiempo de generación: 26-04-2026 a las 20:46:57
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -91,6 +91,7 @@ CREATE TABLE `orden_de_compra` (
   `fecha` date NOT NULL,
   `cantidad` int(11) NOT NULL,
   `id_calzado` int(11) DEFAULT NULL,
+  `id_cliente` int(11) DEFAULT NULL,
   `total` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -98,17 +99,17 @@ CREATE TABLE `orden_de_compra` (
 -- Volcado de datos para la tabla `orden_de_compra`
 --
 
-INSERT INTO `orden_de_compra` (`id_compra`, `fecha`, `cantidad`, `id_calzado`, `total`) VALUES
-(1, '2026-01-05', 2, 1, 170000.00),
-(2, '2026-01-10', 1, 2, 72000.00),
-(3, '2026-01-15', 3, 3, 204000.00),
-(4, '2026-01-20', 1, 4, 55000.00),
-(5, '2026-02-01', 2, 5, 96000.00),
-(6, '2026-02-10', 1, 6, 79000.00),
-(7, '2026-02-14', 4, 7, 244000.00),
-(8, '2026-02-20', 2, 8, 180000.00),
-(9, '2026-03-01', 1, 9, 65000.00),
-(10, '2026-03-15', 3, 10, 174000.00);
+INSERT INTO `orden_de_compra` (`id_compra`, `fecha`, `cantidad`, `id_calzado`, `id_cliente`, `total`) VALUES
+(1, '2026-01-05', 2, 1, 1, 170000.00),
+(2, '2026-01-10', 1, 2, 2, 72000.00),
+(3, '2026-01-15', 3, 3, 3, 204000.00),
+(4, '2026-01-20', 1, 4, 4, 55000.00),
+(5, '2026-02-01', 2, 5, 5, 96000.00),
+(6, '2026-02-10', 1, 6, 6, 79000.00),
+(7, '2026-02-14', 4, 7, 7, 244000.00),
+(8, '2026-02-20', 2, 8, 8, 180000.00),
+(9, '2026-03-01', 1, 9, 9, 65000.00),
+(10, '2026-03-15', 3, 10, 10, 174000.00);
 
 -- --------------------------------------------------------
 
@@ -161,7 +162,8 @@ ALTER TABLE `clientes`
 --
 ALTER TABLE `orden_de_compra`
   ADD PRIMARY KEY (`id_compra`),
-  ADD KEY `id_calzado` (`id_calzado`);
+  ADD KEY `id_calzado` (`id_calzado`),
+  ADD KEY `orden_de_compra_ibfk_2` (`id_cliente`);
 
 --
 -- Indices de la tabla `tienda`
@@ -184,7 +186,8 @@ ALTER TABLE `calzado`
 -- Filtros para la tabla `orden_de_compra`
 --
 ALTER TABLE `orden_de_compra`
-  ADD CONSTRAINT `orden_de_compra_ibfk_1` FOREIGN KEY (`id_calzado`) REFERENCES `calzado` (`id_calzado`);
+  ADD CONSTRAINT `orden_de_compra_ibfk_1` FOREIGN KEY (`id_calzado`) REFERENCES `calzado` (`id_calzado`),
+  ADD CONSTRAINT `orden_de_compra_ibfk_2` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`);
 
 --
 -- Filtros para la tabla `tienda`
