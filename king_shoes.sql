@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-04-2026 a las 20:46:57
+-- Tiempo de generación: 30-04-2026 a las 00:24:30
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -61,24 +61,25 @@ INSERT INTO `calzado` (`id_calzado`, `modelo`, `talle`, `id_tienda`, `precio`, `
 CREATE TABLE `clientes` (
   `id_cliente` int(11) NOT NULL,
   `num_cliente` varchar(20) NOT NULL,
-  `nom_cliente` varchar(100) NOT NULL
+  `nom_cliente` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`id_cliente`, `num_cliente`, `nom_cliente`) VALUES
-(1, 'CLI001', 'Juan Pérez'),
-(2, 'CLI002', 'María González'),
-(3, 'CLI003', 'Carlos Rodríguez'),
-(4, 'CLI004', 'Ana Martínez'),
-(5, 'CLI005', 'Luis Fernández'),
-(6, 'CLI006', 'Laura Sánchez'),
-(7, 'CLI007', 'Diego López'),
-(8, 'CLI008', 'Sofía Torres'),
-(9, 'CLI009', 'Martín Díaz'),
-(10, 'CLI010', 'Valentina Ruiz');
+INSERT INTO `clientes` (`id_cliente`, `num_cliente`, `nom_cliente`, `password`) VALUES
+(1, 'CLI001', 'Juan Pérez', ''),
+(2, 'CLI002', 'María González', ''),
+(3, 'CLI003', 'Carlos Rodríguez', ''),
+(4, 'CLI004', 'Ana Martínez', ''),
+(5, 'CLI005', 'Luis Fernández', ''),
+(6, 'CLI006', 'Laura Sánchez', ''),
+(7, 'CLI007', 'Diego López', ''),
+(8, 'CLI008', 'Sofía Torres', ''),
+(9, 'CLI009', 'Martín Díaz', ''),
+(10, 'CLI010', 'Valentina Ruiz', '');
 
 -- --------------------------------------------------------
 
