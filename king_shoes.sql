@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-04-2026 a las 00:24:30
+-- Tiempo de generación: 30-04-2026 a las 00:51:32
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -79,7 +79,9 @@ INSERT INTO `clientes` (`id_cliente`, `num_cliente`, `nom_cliente`, `password`) 
 (7, 'CLI007', 'Diego López', ''),
 (8, 'CLI008', 'Sofía Torres', ''),
 (9, 'CLI009', 'Martín Díaz', ''),
-(10, 'CLI010', 'Valentina Ruiz', '');
+(10, 'CLI010', 'Valentina Ruiz', ''),
+(11, '50', 'Vito Martin', '$2y$10$dy4plHiIa5gqFtgmBma/DediH1oplPwBQXiqnQmtYVXHHacNjgj/2'),
+(22, '30', 'Vito Martin', '$2y$10$J/wiutNMc.8YqxotPntijuNowxPLJbjQ4tNEddXd8MvEdjmPzGXze');
 
 -- --------------------------------------------------------
 
@@ -101,8 +103,7 @@ CREATE TABLE `orden_de_compra` (
 --
 
 INSERT INTO `orden_de_compra` (`id_compra`, `fecha`, `cantidad`, `id_calzado`, `id_cliente`, `total`) VALUES
-(1, '2026-01-05', 2, 1, 1, 170000.00),
-(2, '2026-01-10', 1, 2, 2, 72000.00),
+(1, '2008-01-20', 1, 1, 1, 85000.00),
 (3, '2026-01-15', 3, 3, 3, 204000.00),
 (4, '2026-01-20', 1, 4, 4, 55000.00),
 (5, '2026-02-01', 2, 5, 5, 96000.00),
@@ -110,7 +111,9 @@ INSERT INTO `orden_de_compra` (`id_compra`, `fecha`, `cantidad`, `id_calzado`, `
 (7, '2026-02-14', 4, 7, 7, 244000.00),
 (8, '2026-02-20', 2, 8, 8, 180000.00),
 (9, '2026-03-01', 1, 9, 9, 65000.00),
-(10, '2026-03-15', 3, 10, 10, 174000.00);
+(10, '2026-03-15', 3, 10, 10, 174000.00),
+(11, '1111-11-11', 5, 5, 1, 240000.00),
+(12, '2222-02-22', 7, 5, 1, 336000.00);
 
 -- --------------------------------------------------------
 
@@ -171,7 +174,35 @@ ALTER TABLE `orden_de_compra`
 --
 ALTER TABLE `tienda`
   ADD PRIMARY KEY (`id_tienda`),
-  ADD KEY `id_cliente` (`id_cliente`);
+  ADD KEY `tienda_ibfk_1` (`id_cliente`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `calzado`
+--
+ALTER TABLE `calzado`
+  MODIFY `id_calzado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT de la tabla `orden_de_compra`
+--
+ALTER TABLE `orden_de_compra`
+  MODIFY `id_compra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT de la tabla `tienda`
+--
+ALTER TABLE `tienda`
+  MODIFY `id_tienda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas
